@@ -17,12 +17,15 @@ import com.leftBoundaryFeature.LeftBoundaryAnalysis;
 import com.leftBoundaryFeature.LeftBoundaryWrapper;
 
 public class Predicter {
+	private static Boundary boundary;
+
 	public static void predictByModel(String testFileName,String trainFileName) {
 		File inputFile = new File(testFileName);
 		File outputFile = new File("src/data/testData/test1Answer.txt");
 		BufferedReader in = null;  
 	    BufferedWriter out = null; 
-	    
+	    boundary = new Boundary();
+	    Boundary boundary2 = new Boundary();
 	    //TAGGER
 	    Tagger tagger = new Tagger("-m src/data/Model/model -v 3 -n2");
 	    // clear internal context
